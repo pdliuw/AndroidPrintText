@@ -19,7 +19,7 @@ import java.util.UUID;
 import de.greenrobot.event.EventBus;
 
 /**
- * Created by liuguirong on 8/1/17.
+ * @author air
  * This class does all the work for setting up and managing Bluetooth
  * connections with other devices. It has a thread that listens for incoming
  * connections, a thread for connecting with a device, and a thread for

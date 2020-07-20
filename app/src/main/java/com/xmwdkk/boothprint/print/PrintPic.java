@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
+/**
+ * @author air
+ */
 public class PrintPic {
     public Canvas canvas = null;
 

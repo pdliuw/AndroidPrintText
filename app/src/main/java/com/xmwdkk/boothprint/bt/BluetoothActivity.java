@@ -10,9 +10,9 @@ import android.text.TextUtils;
 
 
 /**
- * Created by liuguirong on 8/1/17.
+ * @author air
  */
-public  class BluetoothActivity extends Activity implements BtInterface {
+public class BluetoothActivity extends Activity implements BtInterface {
 
 
     /**

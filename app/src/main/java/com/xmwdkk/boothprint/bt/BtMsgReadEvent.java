@@ -1,7 +1,7 @@
 package com.xmwdkk.boothprint.bt;
 
 /**
- * Created by liuguirong on 8/1/17.
+ * @author air
  * <p/>
  * read bytes from bluetooth
  */

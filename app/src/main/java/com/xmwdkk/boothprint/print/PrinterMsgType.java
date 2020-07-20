@@ -1,7 +1,7 @@
 package com.xmwdkk.boothprint.print;
 
 /**
- * Created by liugruirong on 2017/8/3.
+ * @author air
  * <p/>
  * printer eventbus message type
  */

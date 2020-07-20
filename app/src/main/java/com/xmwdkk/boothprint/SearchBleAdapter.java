@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 
 /**
- * Created by yefeng on 6/2/15.
+ * @author air
  * github:yefengfreedom
  */
 public class SearchBleAdapter extends BaseAdapter {
@@ -124,7 +124,7 @@ public class SearchBleAdapter extends BaseAdapter {
         if (convertView != null) {
             holder = (ViewHolder) convertView.getTag();
         } else {
-            convertView = mInflater.inflate(R.layout.adapter_bt_device, parent, false);
+            convertView = mInflater.inflate(R.layout.print_adapter_bt_device, parent, false);
             holder = new ViewHolder();
             if (null != convertView) {
                 convertView.setTag(holder);

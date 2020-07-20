@@ -4,7 +4,7 @@ import java.io.IOException;
 
 /**
  * 纸宽58mm的打印机
- * Created by liuguirong on 8/1/17
+ * @author air
  */
 @SuppressWarnings("unused")
 public class PrinterWriter58mm extends PrinterWriter {

@@ -19,9 +19,9 @@ import com.xmwdkk.boothprint.util.ToastUtil;
 import de.greenrobot.event.EventBus;
 
 /***
- *  Created by liugruirong on 2017/8/3.
+ *  @author air
  */
-public class MainActivity extends BluetoothActivity implements View.OnClickListener {
+public class BluetoothPrintMainActivity extends BluetoothActivity implements View.OnClickListener {
 
      TextView tv_bluename;
      TextView tv_blueadress;
@@ -34,7 +34,7 @@ public class MainActivity extends BluetoothActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.print_main_activity);
         tv_bluename =findViewById(R.id.tv_bluename);
         tv_blueadress =findViewById(R.id.tv_blueadress);
         findViewById(R.id.button4).setOnClickListener(this);
@@ -45,7 +45,7 @@ public class MainActivity extends BluetoothActivity implements View.OnClickListe
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_COARSE_LOCATION);
         }
-        EventBus.getDefault().register(MainActivity.this);
+        EventBus.getDefault().register(BluetoothPrintMainActivity.this);
 
     }
 
@@ -70,18 +70,18 @@ public class MainActivity extends BluetoothActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.button4:
-             startActivity(new Intent(MainActivity.this,SearchBluetoothActivity.class));
+             startActivity(new Intent(BluetoothPrintMainActivity.this,SearchBluetoothActivity.class));
                 break;
             case R.id.button5:
                 if (TextUtils.isEmpty(AppInfo.btAddress)){
-                    ToastUtil.showToast(MainActivity.this,"请连接蓝牙...");
-                    startActivity(new Intent(MainActivity.this,SearchBluetoothActivity.class));
+                    ToastUtil.showToast(BluetoothPrintMainActivity.this,"请连接蓝牙...");
+                    startActivity(new Intent(BluetoothPrintMainActivity.this,SearchBluetoothActivity.class));
                 }else {
                     if ( mAdapter.getState()==BluetoothAdapter.STATE_OFF ){//蓝牙被关闭时强制打开
                          mAdapter.enable();
-                        ToastUtil.showToast(MainActivity.this,"蓝牙被关闭请打开...");
+                        ToastUtil.showToast(BluetoothPrintMainActivity.this,"蓝牙被关闭请打开...");
                     }else {
-                        ToastUtil.showToast(MainActivity.this,"打印测试...");
+                        ToastUtil.showToast(BluetoothPrintMainActivity.this,"打印测试...");
                         Intent intent = new Intent(getApplicationContext(), BtService.class);
                         intent.setAction(PrintUtil.ACTION_PRINT_TEST);
                         startService(intent);
@@ -91,10 +91,10 @@ public class MainActivity extends BluetoothActivity implements View.OnClickListe
                 break;
             case R.id.button6:
                 if (TextUtils.isEmpty(AppInfo.btAddress)){
-                    ToastUtil.showToast(MainActivity.this,"请连接蓝牙...");
-                    startActivity(new Intent(MainActivity.this,SearchBluetoothActivity.class));
+                    ToastUtil.showToast(BluetoothPrintMainActivity.this,"请连接蓝牙...");
+                    startActivity(new Intent(BluetoothPrintMainActivity.this,SearchBluetoothActivity.class));
                 }else {
-                    ToastUtil.showToast(MainActivity.this,"打印测试...");
+                    ToastUtil.showToast(BluetoothPrintMainActivity.this,"打印测试...");
                     Intent intent2 = new Intent(getApplicationContext(), BtService.class);
                     intent2.setAction(PrintUtil.ACTION_PRINT_TEST_TWO);
                     startService(intent2);
@@ -102,16 +102,15 @@ public class MainActivity extends BluetoothActivity implements View.OnClickListe
                 }
                 case R.id.button:
                 if (TextUtils.isEmpty(AppInfo.btAddress)){
-                    ToastUtil.showToast(MainActivity.this,"请连接蓝牙...");
-                    startActivity(new Intent(MainActivity.this,SearchBluetoothActivity.class));
+                    ToastUtil.showToast(BluetoothPrintMainActivity.this,"请连接蓝牙...");
+                    startActivity(new Intent(BluetoothPrintMainActivity.this,SearchBluetoothActivity.class));
                 }else {
-                    ToastUtil.showToast(MainActivity.this,"打印图片...");
+                    ToastUtil.showToast(BluetoothPrintMainActivity.this,"打印图片...");
                     Intent intent2 = new Intent(getApplicationContext(), BtService.class);
                     intent2.setAction(PrintUtil.ACTION_PRINT_BITMAP);
                     startService(intent2);
 
                 }
-//                startActivity(new Intent(MainActivity.this,TextActivity.class));
                 break;
         }
 
@@ -123,13 +122,13 @@ public class MainActivity extends BluetoothActivity implements View.OnClickListe
      */
     public void onEventMainThread(PrintMsgEvent event) {
         if (event.type == PrinterMsgType.MESSAGE_TOAST) {
-            ToastUtil.showToast(MainActivity.this,event.msg);
+            ToastUtil.showToast(BluetoothPrintMainActivity.this,event.msg);
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().register(MainActivity.this);
+        EventBus.getDefault().register(BluetoothPrintMainActivity.this);
     }
 }

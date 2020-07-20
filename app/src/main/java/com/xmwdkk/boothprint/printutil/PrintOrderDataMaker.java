@@ -13,7 +13,7 @@ import java.util.Locale;
 
 /**
  * 测试数据生成器
- * Created by liuguirong on 8/1/17.
+ * @author air
  */
 
 public class PrintOrderDataMaker implements PrintDataMaker {

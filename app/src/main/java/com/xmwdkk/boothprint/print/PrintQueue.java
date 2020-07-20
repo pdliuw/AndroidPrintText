@@ -11,7 +11,7 @@ import com.xmwdkk.boothprint.bt.BtService;
 import java.util.ArrayList;
 
 /**
- * Created by liuguirong on 8/1/17.
+ * @author air
  * <p/>
  * this is print queue.
  * you can simple add print bytes to queue. and this class will send those bytes to bluetooth device

@@ -7,7 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
 
 /**
- * Created by liuguirong on 8/1/17.
+ * @author air
  */
 public class BtUtil {
     /**

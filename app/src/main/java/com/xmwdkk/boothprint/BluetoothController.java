@@ -7,12 +7,12 @@ import android.util.Log;
 import com.xmwdkk.boothprint.print.PrintUtil;
 
 /**
- * Created by liuguirong on 8/1/17.
+ * @author air
  */
 
 public class BluetoothController {
 
-    public static void init(MainActivity activity) {
+    public static void init(BluetoothPrintMainActivity activity) {
         if (null == activity.mAdapter) {
             activity.mAdapter = BluetoothAdapter.getDefaultAdapter();
         }

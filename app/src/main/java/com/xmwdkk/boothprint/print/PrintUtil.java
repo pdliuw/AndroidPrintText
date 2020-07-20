@@ -14,8 +14,8 @@ import java.util.Set;
 
 
 /**
- * Created by liuguirong on 2017/8/3.
- *   printer util
+ * @author air
+ * printer util
  */
 public class PrintUtil {
 
@@ -47,6 +47,7 @@ public class PrintUtil {
         editor.apply();
         AppInfo.btName = value;
     }
+
     //是否绑定了打印机设备
     public static boolean isBondPrinter(Context mContext, BluetoothAdapter bluetoothAdapter) {
         if (!BtUtil.isOpen(bluetoothAdapter)) {
@@ -79,6 +80,7 @@ public class PrintUtil {
         return !(TextUtils.isEmpty(defaultBluetoothDeviceAddress)
                 || TextUtils.isEmpty(getDefaultBluetoothDeviceName(mContext)));
     }
+
     //绑定设备的蓝牙名称
     public static String getDefaultBluetoothDeviceName(Context mContext) {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(FILENAME, Context.MODE_PRIVATE);

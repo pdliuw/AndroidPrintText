@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *   Created by liuguirong on 8/1/17.
+ * @author air
  * ESC-POS指令集
  */
 @SuppressWarnings("all")

@@ -1,7 +1,7 @@
 package com.xmwdkk.boothprint.print;
 
 /**
- * Created by liuguirong on 8/1/17.
+ * @author air
  * print message event
  */
 public class PrintMsgEvent {

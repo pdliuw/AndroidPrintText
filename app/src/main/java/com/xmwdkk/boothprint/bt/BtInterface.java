@@ -5,7 +5,7 @@ import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 
 /**
- * Created by liuguirong on 8/1/17.
+ * @author air
  */
 public interface BtInterface {
     /**

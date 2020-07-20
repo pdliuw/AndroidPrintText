@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 
 /**
- * Created by liuguirong on 8/1/17.
+ * @author air
  * 打印机写入器
  */
 public abstract class PrinterWriter {

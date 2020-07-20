@@ -19,7 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 /**
- * Created by liuguirong on 8/1/17.
+ * @author air
  * <p/>
  * print ticket service
  */
