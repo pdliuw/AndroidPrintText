@@ -9,7 +9,7 @@ import android.content.IntentFilter;
 /**
  * @author air
  */
-public class BtUtil {
+public class BluetoothUtil {
     /**
      * 判断蓝牙是否打开
      *

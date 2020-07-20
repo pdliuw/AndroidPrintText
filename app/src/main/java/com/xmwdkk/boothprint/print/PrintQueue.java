@@ -6,7 +6,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.xmwdkk.boothprint.base.AppInfo;
-import com.xmwdkk.boothprint.bt.BtService;
+import com.xmwdkk.boothprint.bt.BluetoothService;
 
 import java.util.ArrayList;
 
@@ -39,7 +39,7 @@ public class PrintQueue {
     /**
      * bluetooth service
      */
-    private BtService mBtService;
+    private BluetoothService mBtService;
 
 
     private PrintQueue() {
@@ -96,9 +96,9 @@ public class PrintQueue {
                 mAdapter = BluetoothAdapter.getDefaultAdapter();
             }
             if (null == mBtService) {
-                mBtService = new BtService(mContext);
+                mBtService = new BluetoothService(mContext);
             }
-            if (mBtService.getState() != BtService.STATE_CONNECTED) {
+            if (mBtService.getState() != BluetoothService.STATE_CONNECTED) {
                 if (!TextUtils.isEmpty(AppInfo.btAddress)) {
                     BluetoothDevice device = mAdapter.getRemoteDevice(AppInfo.btAddress);
                     mBtService.connect(device);
@@ -148,9 +148,9 @@ public class PrintQueue {
                 return;
             }
             if (null == mBtService) {
-                mBtService = new BtService(mContext);
+                mBtService = new BluetoothService(mContext);
             }
-            if (mBtService.getState() != BtService.STATE_CONNECTED) {
+            if (mBtService.getState() != BluetoothService.STATE_CONNECTED) {
                 if (!TextUtils.isEmpty(AppInfo.btAddress)) {
                     BluetoothDevice device = mAdapter.getRemoteDevice(AppInfo.btAddress);
                     mBtService.connect(device);
@@ -181,9 +181,9 @@ public class PrintQueue {
                 mAdapter = BluetoothAdapter.getDefaultAdapter();
             }
             if (null == mBtService) {
-                mBtService = new BtService(mContext);
+                mBtService = new BluetoothService(mContext);
             }
-            if (mBtService.getState() != BtService.STATE_CONNECTED) {
+            if (mBtService.getState() != BluetoothService.STATE_CONNECTED) {
                 if (!TextUtils.isEmpty(AppInfo.btAddress)) {
                     BluetoothDevice device = mAdapter.getRemoteDevice(AppInfo.btAddress);
                     mBtService.connect(device);

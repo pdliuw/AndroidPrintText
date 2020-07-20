@@ -8,7 +8,7 @@ import android.os.Build;
 import android.text.TextUtils;
 
 import com.xmwdkk.boothprint.base.AppInfo;
-import com.xmwdkk.boothprint.bt.BtUtil;
+import com.xmwdkk.boothprint.bt.BluetoothUtil;
 
 import java.util.Set;
 
@@ -50,7 +50,7 @@ public class PrintUtil {
 
     //是否绑定了打印机设备
     public static boolean isBondPrinter(Context mContext, BluetoothAdapter bluetoothAdapter) {
-        if (!BtUtil.isOpen(bluetoothAdapter)) {
+        if (!BluetoothUtil.isOpen(bluetoothAdapter)) {
             return false;
         }
         String defaultBluetoothDeviceAddress = getDefaultBluethoothDeviceAddress(mContext);

@@ -29,7 +29,7 @@ import de.greenrobot.event.EventBus;
    *连接，用于与设备连接的线程和线程
    *连接时执行数据传输。
  */
-public class BtService {
+public class BluetoothService {
 
     // Constants that indicate the current connection state
     public static final int STATE_NONE = 0; // we're doing nothing
@@ -58,7 +58,7 @@ public class BtService {
     /**
      * Constructor. Prepares a new BluetoothChat session.
      */
-    public BtService(Context context) {
+    public BluetoothService(Context context) {
         mAdapter = BluetoothAdapter.getDefaultAdapter();
         mState = STATE_NONE;
         this.mContext = context;
@@ -238,7 +238,7 @@ public class BtService {
         EventBus.getDefault().post(new PrintMsgEvent(PrinterMsgType.MESSAGE_TOAST, "蓝牙连接失败,请重启打印机再试"));
         setState(STATE_NONE);
         // Start the service over to restart listening mode
-        BtService.this.start();
+        BluetoothService.this.start();
     }
 
     /**
@@ -279,7 +279,7 @@ public class BtService {
         EventBus.getDefault().post(new PrintMsgEvent(PrinterMsgType.MESSAGE_TOAST, "蓝牙连接断开"));
         setState(STATE_NONE);
         // Start the service over to restart listening mode
-        BtService.this.start();
+        BluetoothService.this.start();
     }
 
     /**
@@ -327,7 +327,7 @@ public class BtService {
 
                     // If a connection was accepted
                     if (socket != null) {
-                        synchronized (BtService.this) {
+                        synchronized (BluetoothService.this) {
                             switch (mState) {
                                 case STATE_LISTEN:
                                 case STATE_CONNECTING:
@@ -417,7 +417,7 @@ public class BtService {
                 }
 
                 // Reset the ConnectThread because we're done
-                synchronized (BtService.this) {
+                synchronized (BluetoothService.this) {
                     mConnectThread = null;
                 }
 
@@ -476,16 +476,16 @@ public class BtService {
                     // Read from the InputStream
                     bytes = mmInStream.read(buffer);
                     // send data
-                    EventBus.getDefault().post(new BtMsgReadEvent(bytes, buffer));
+                    EventBus.getDefault().post(new BluetoothMsgReadEvent(bytes, buffer));
                 } catch (IOException e) {
                     Log.e(TAG, "disconnected", e);
                     connectionLost();
                     // Start the service over to restart listening mode
-                    BtService.this.start();
+                    BluetoothService.this.start();
                     break;
                 } catch (Exception e) {
                     connectionLost();
-                    BtService.this.start();
+                    BluetoothService.this.start();
                     break;
                 }
             }

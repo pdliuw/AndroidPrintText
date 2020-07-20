@@ -15,10 +15,5 @@ public class ToastUtil {
         }
     }
 
-    public static void showToast(Context context, int message) {
-        if (null != context && message != 0) {
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-        }
-    }
 
 }

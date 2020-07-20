@@ -16,7 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.xmwdkk.boothprint.bt.BluetoothActivity;
-import com.xmwdkk.boothprint.bt.BtUtil;
+import com.xmwdkk.boothprint.bt.BluetoothUtil;
 import com.xmwdkk.boothprint.print.PrintQueue;
 import com.xmwdkk.boothprint.print.PrintUtil;
 import com.xmwdkk.boothprint.util.ToastUtil;
@@ -57,7 +57,7 @@ public class SearchBluetoothActivity extends BluetoothActivity implements Adapte
 
 
     private void init() {
-        if (!BtUtil.isOpen(bluetoothAdapter)) {
+        if (!BluetoothUtil.isOpen(bluetoothAdapter)) {
             tv_title.setText("未连接蓝牙打印机");
             tv_summary.setText("系统蓝牙已关闭,点击开启");
 
@@ -110,8 +110,8 @@ public class SearchBluetoothActivity extends BluetoothActivity implements Adapte
      * search device
      */
     private void searchDeviceOrOpenBluetooth() {
-        if (BtUtil.isOpen(bluetoothAdapter)) {
-            BtUtil.searchDevices(bluetoothAdapter);
+        if (BluetoothUtil.isOpen(bluetoothAdapter)) {
+            BluetoothUtil.searchDevices(bluetoothAdapter);
         }
     }
 
@@ -122,7 +122,7 @@ public class SearchBluetoothActivity extends BluetoothActivity implements Adapte
     @Override
     protected void onStop() {
         super.onStop();
-        BtUtil.cancelDiscovery(bluetoothAdapter);
+        BluetoothUtil.cancelDiscovery(bluetoothAdapter);
     }
 
     @Override
@@ -191,7 +191,7 @@ public class SearchBluetoothActivity extends BluetoothActivity implements Adapte
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         try {
-                            BtUtil.cancelDiscovery(bluetoothAdapter);
+                            BluetoothUtil.cancelDiscovery(bluetoothAdapter);
 
 
                             if (bluetoothDevice.getBondState() == BluetoothDevice.BOND_BONDED) {

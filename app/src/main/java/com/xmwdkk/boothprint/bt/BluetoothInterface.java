@@ -7,7 +7,7 @@ import android.content.Intent;
 /**
  * @author air
  */
-public interface BtInterface {
+public interface BluetoothInterface {
     /**
      * start discovery bt device
      *

@@ -12,7 +12,7 @@ import android.text.TextUtils;
 /**
  * @author air
  */
-public class BluetoothActivity extends Activity implements BtInterface {
+public class BluetoothActivity extends Activity implements BluetoothInterface {
 
 
     /**
@@ -47,13 +47,13 @@ public class BluetoothActivity extends Activity implements BtInterface {
     @Override
     protected void onStart() {
         super.onStart();
-        BtUtil.registerBluetoothReceiver(mBtReceiver, this);
+        BluetoothUtil.registerBluetoothReceiver(mBtReceiver, this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        BtUtil.unregisterBluetoothReceiver(mBtReceiver, this);
+        BluetoothUtil.unregisterBluetoothReceiver(mBtReceiver, this);
     }
 
     @Override
